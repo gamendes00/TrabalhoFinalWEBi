@@ -10,7 +10,7 @@ RUN mvn clean install
 FROM openjdk:17-jdk-slim
 
 EXPOSE 8080
-WORKDIR /app
-COPY --from=build /target/spring-angular-0.0.1-SNAPSHOT.jar /app/app.jar
 
-ENTRYPOINT [ "java", "-jar", "/app/app.jar" ]
+COPY --from=build /target/projetofinal-0.0.1-SNAPSHOT.jar app.jar
+
+ENTRYPOINT [ "java", "-jar", "app.jar" ]
