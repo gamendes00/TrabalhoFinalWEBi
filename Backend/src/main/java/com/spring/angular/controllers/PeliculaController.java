@@ -81,8 +81,7 @@ public class PeliculaController {
 	 public List<Actor> listadoActores() {
     return serviActor.listarActores();
 	}
-	
-	/* Registra y actualiza la información de una película, incluyendo la gestión de su imagen asociada. */
+
 	@PostMapping(value=("/pelicula"), consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE })
 	public ResponseEntity<?> create(@RequestPart("stringPeli") String stringPeli, @RequestPart("file") MultipartFile image){
 		try {
@@ -100,8 +99,7 @@ public class PeliculaController {
 			return ResponseEntity.internalServerError().body(e);
 		}
 	}
-	
-	/* Obtiene la imagen de la carpeta "uploads" y la muestra. */
+
 	@GetMapping(value = "/uploads/{filename}")
 	public ResponseEntity<Resource> goImage(@PathVariable String filename) {
 		Resource resource = null;
@@ -122,7 +120,6 @@ public class PeliculaController {
 	}
 
 
-	/* Elimina la entidad película junto con su imagen asociada. */
 	@DeleteMapping("/pelicula/{id}")
 	public ResponseEntity<Map<String, Boolean>> eliminarPelicula(@PathVariable Integer id) {
 		Pelicula objPeli = serviPelicula.obtenerPeliculaPorId(id);
@@ -133,15 +130,12 @@ public class PeliculaController {
 	        return ResponseEntity.ok(respuesta);
 	    }
 
-	    // Obtener la ruta de la imagen asociada
 	    String imagePath = objPeli.getImagen();
 
-	    // Eliminar la entidad
 	    serviPelicula.eliminarPeliculaPorId(id);
 
-	    // Eliminar la imagen asociada si existe
 	    if (imagePath != null) {
-	        // Utilizar el servicio para eliminar la imagen
+
 	        boolean imagenEliminada = serviUploadFile.delete(imagePath);
 
 	        if (imagenEliminada) {
@@ -149,8 +143,7 @@ public class PeliculaController {
 	            respuesta.put("eliminar", Boolean.TRUE);
 	            return ResponseEntity.ok(respuesta);
 	        } else {
-	            // Si no se pudo eliminar la imagen, puedes manejar el error de alguna manera
-	            // Por ejemplo, puedes devolver un código de error HTTP apropiado
+
 	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 	        }
 	    } else {
@@ -159,8 +152,7 @@ public class PeliculaController {
 	        return ResponseEntity.ok(respuesta);
 	    }
 	}
-	
-	/* Busca películas por el ID de género. */
+
 	@GetMapping("/buscar/genero")
 	public ResponseEntity<List<Pelicula>> findByPeliculaGeneroIdGenero(@RequestParam int codGenero) {
 		List<Pelicula> pelicula = serviPelicula.findByPeliculaGeneroIdGenero(codGenero);

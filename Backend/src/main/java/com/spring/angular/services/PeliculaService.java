@@ -21,8 +21,7 @@ public class PeliculaService {
 	public List<Pelicula> listarPeliculas(){
 		return repoPelicula.findAll();
 	}
-	
-	/* Registra y actualiza la entidad pelicula */
+
 	public Pelicula guardarPelicula(Pelicula pelicula) {
 		return repoPelicula.save(pelicula);
 	}

@@ -25,7 +25,6 @@ public class InicioController {
 	@Autowired
 	private PeliculaService serviPelicula;
 	
-	/* Listado de peliculas en reversa de catalogo en la vista de inicio */
 	@GetMapping("/pelicula")
 	 public List<Pelicula> listadoPeliculas() {
 		List<Pelicula> peliculas = serviPelicula.listarPeliculas();
@@ -33,12 +32,10 @@ public class InicioController {
 	    return peliculas;
 	}
 	
-	/* Listado Aleatorio de peliculas en vista "sorprendeme" */
 	@GetMapping("/sorprendeme")
 	public List<Pelicula> peliculasAleatorias() {
 	    List<Pelicula> todasLasPeliculas = serviPelicula.listarPeliculas();
 
-	    // si hay al menos 3 películas en la lista completa
 	    if (todasLasPeliculas.size() < 3) {
 	        return todasLasPeliculas;
 	    } else {
@@ -47,7 +44,6 @@ public class InicioController {
 
 	        Random random = new Random();
 
-	        // Bucle para seleccionar películas aleatorias de la lista completa
 	        for (int i = 0; i < 3; i++) {
 	            int indiceAleatorio;
 	            Pelicula peliculaAleatoria;
@@ -88,21 +84,18 @@ public class InicioController {
 	    }
 	}
 	
-	/* Detalles segun ID en la  vista de ver-pelicula */
 	@GetMapping("/pelicula/{id}")
 	public ResponseEntity<Pelicula> obtenerPeliculaPorId(@PathVariable Integer id) {
 		Pelicula pelicula = serviPelicula.obtenerPeliculaPorId(id);
 		return ResponseEntity.ok(pelicula);
 	}
-	
-	/* Buscar Pelicula X titulo en la vista de biblioteca-peliculas */
+
 	@GetMapping("/pelicula/buscar")
 	public ResponseEntity<List<Pelicula>> searchMoviesByTitle(@RequestParam String titulo) {
 		List<Pelicula> pelicula = serviPelicula.buscarPeliculaPorTitulo(titulo);
 		return ResponseEntity.ok(pelicula);
 	}
-	
-	/* Buscar Pelicula X anio en la vista de biblioteca-peliculas */
+
 	@GetMapping("/pelicula/obtener")
 	public ResponseEntity<List<Pelicula>> searchMoviesByYear(@RequestParam int anio) {
 		List<Pelicula> pelicula = serviPelicula.buscarPeliculaPorAnio(anio);
