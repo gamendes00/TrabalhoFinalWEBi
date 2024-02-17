@@ -3,7 +3,7 @@
     <br>
     <div class="filter-bar mt-2">
         <div class="search_form">
-            <input [(ngModel)]="title" type="text" class="text-light searchTerm" placeholder="Buscar por título de película">
+            <input [(ngModel)]="title" type="text" class="text-light searchTerm" placeholder="Buscar filme pelo título">
             <button (click)="buscarPeliculaXTitulo()" type="submit" class="searchButton"><i class="fa fa-search"></i></button>
         </div>
         <div class="search_form">
@@ -24,7 +24,7 @@
                 <option value="2010">2010</option>
             </select>   -->
             <div class="search_form">
-                <input [(ngModel)]="anio" type="number" class="text-light searchTerm" placeholder="Buscar por año de película">
+                <input [(ngModel)]="anio" type="number" class="text-light searchTerm" placeholder="Buscar filme pelo ano">
                 <button (click)="buscarPeliculaXAnio()" type="submit" class="searchButton bg-light"><i class="fa fa-search text-dark"></i></button>
             </div>    
         </div>    

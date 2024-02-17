@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       .subscribe(() => {
         this.router.navigate(['/']);
       }, (err) => {
-        alert("Usuario o contraseña incorrectos");
+        alert("Usuário ou Senha incorretos");
       })
   }
 
