@@ -24,7 +24,7 @@ export class ListaActoresComponent implements OnInit {
 
   private obtenerActores() {
     this.serviActor.obtenerListaActores().subscribe(dato => {
-      console.log("Actores: ", dato);
+      console.log("Atores: ", dato);
       this.objActor = dato;
       this.showDatatable();
     });

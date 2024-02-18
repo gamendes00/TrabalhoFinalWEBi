@@ -21,7 +21,7 @@
                     <br>
                     <div class="row align-items-center">
                         <div class="col-sm-2">
-                            <p class="mb-0">Duración:</p>
+                            <p class="mb-0">Duração:</p>
                         </div>
                         <div class="col-sm-2">
                             <p class="text-ver-pelicula mb-0">{{ objPeli.duracion }} min</p>
@@ -44,7 +44,7 @@
                     <br>
                     <div class="row">
                         <div class="col-sm-2">
-                            <p class="mb-0">Géneros:</p>
+                            <p class="mb-0">Gêneros:</p>
                         </div>
                         <div class="col-sm-8">
                             <p (click)="verGenero(objPeli.peliculaGenero.idGenero)" style="cursor: pointer;" class="text-ver-pelicula mb-0" *ngIf="objPeli && objPeli.peliculaGenero">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-2">
-                            <p class="mb-0">Actores:</p>
+                            <p class="mb-0">Atores:</p>
                         </div>
                         <div class="col-sm-8">
                             <p class="text-ver-pelicula mb-0" *ngIf="objPeli && objPeli.peliculaActor">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-2">
-                            <p class="mb-0">Director:</p>
+                            <p class="mb-0">Diretor:</p>
                         </div>
                         <div class="col-sm-8">
                             <p class="text-ver-pelicula mb-0" *ngIf="objPeli && objPeli.peliculaDirector">
@@ -84,7 +84,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-2">
-                            <p class="mb-0">Productora:</p>
+                            <p class="mb-0">Produtora:</p>
                         </div>
                         <div class="col-sm-8">
                             <p class="text-ver-pelicula mb-0">
@@ -115,7 +115,7 @@
 
             <!-- Movie Recomendaciones -->
             <div class="my-5">
-                <h2 class="py-4">Películas similar a: <span>{{ objPeli.titulo }}</span></h2>
+                <h2 class="py-4">Filmes semelhantes: <span>{{ objPeli.titulo }}</span></h2>
                 <div class="row">
                     <div class="col-md-3" *ngFor="let peli of peli">
                         <div class="card">
